@@ -32,7 +32,7 @@ You decide the task hour and adjust to your needs
 
 The /opt/pvebackup/post_script.sh should contain rsync the backups to another node
 
-    $ cat /opt/pvebackup.sh
+    $ cat /opt/pvebackup/post_script.sh
     #!/bin/bash
     
     # Daily copy to other host
