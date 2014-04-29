@@ -1,4 +1,5 @@
 #!/bin/bash
+currentdir=$(dirname $0)
 echo "Host node server backup script (c) Pedro Amador 2011-2014"
 # Determine backup period
 period=''
@@ -12,10 +13,10 @@ else
   period='daily'
 fi
 # Get exclude list
-exclude=`head -n1 /root/cron/$period.exclude`
+exclude=`head -n1 $currentdir/$period.exclude`
 
 # Exec backup script
-/opt/backup/backup_period.sh $period $exclude
+$currentdir/_backup_period.sh $period $exclude
 
 # Do other things
-/opt/backup/post_script.sh
+$currentdir/post_script.sh

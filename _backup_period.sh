@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "Host node server backup script (c) Pedro Amador 2011-2014"
 period=''
 # Check argument
 if [[ $# -eq 0 ]]
@@ -44,8 +43,6 @@ do
   shift
 done
 echo "Excluding $exclude"
-
-exit 0
 
 # Do backup
 tar -czf /var/backups/localhost/$period/_root_`date +%Y%m%d`.tar.gz /root /etc 2> /dev/null
