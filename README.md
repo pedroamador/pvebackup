@@ -24,7 +24,7 @@ The files will contains a list of CTID's you want to exclude from the backups, l
 
 5. Create /etc/cron.d/pvebackup file with these content content
 
-    30 03	* * *	root	/opt/pvebackup/pvebackup.sh >> /var/log/pvebackup.log 2>> /var/log/pvebackup.err
+    30 03	* * *	root	/opt/pvebackup/backup.sh >> /var/log/pvebackup.log 2>> /var/log/pvebackup.err
 
 You decide the task hour and adjust to your needs
 
