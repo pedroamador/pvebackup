@@ -6,7 +6,7 @@ period=''
 if [ `date +%e` == 1 ]
 then
   period='monthly'
-elif [ `date +%u` == 0 ]
+elif [ `date +%u` == 7 ]
 then
   period='weekly'
 else
