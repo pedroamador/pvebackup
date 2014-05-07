@@ -36,4 +36,5 @@ The /opt/pvebackup/post_script.sh should contain rsync the backups to another no
     #!/bin/bash
     
     # Daily copy to other host
-    ionice -c3 rsync --bwlimit 25000 -av --delete /var/pvebackups/localhost/ other_proxmox_node.tld:/var/backups/$(hostname)/
+    ionice -c3 rsync --bwlimit 25000 -av --delete /var/backups/localhost/ other_proxmox_node.tld:/var/backups/$(hostname)/
+
