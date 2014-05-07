@@ -13,7 +13,7 @@ else
   period='daily'
 fi
 # Get exclude list
-exclude=`head -n1 $currentdir/$period.exclude`
+exclude=`head -n1 $currentdir/$period.exclude 2> /dev/null`
 
 # Exec backup script
 $currentdir/_backup_period.sh $period $exclude

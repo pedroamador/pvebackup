@@ -11,9 +11,9 @@ You can create new container or kvm and forgot to backup it. The backup script w
 
 3. Create these files files
 
-* /opt/pvebackup/exclude.daily
-* /opt/pvebackup/exclude.weekly
-* /opt/pvebackup/exclude.monthly
+* /opt/pvebackup/daily.exclude
+* /opt/pvebackup/weekly.exclude
+* /opt/pvebackup/monthly.exclude
 
 The files will contains a list of CTID's you want to exclude from the backups, like "10002 10003 10004 ..."
 
