@@ -29,7 +29,7 @@ then
   exit 1
 fi
 
-echo `date +"%Y-%m-%M %X"`": backing up $period period "
+echo `date +"%Y-%m-%d %X"`": backing up $period period "
 
 # Restart cluster before backup
 /etc/init.d/pve-cluster start
