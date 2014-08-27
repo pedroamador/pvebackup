@@ -49,4 +49,4 @@ then
 else
   maxfiles=2
 fi
-/usr/bin/vzdump -compress 1 -mode snapshot -storage $period -stdexcludes -maxfiles $maxfiles -all $exclude
+ionice -c3 /usr/bin/vzdump -compress 1 -mode snapshot -storage $period -stdexcludes -maxfiles $maxfiles -all $exclude
