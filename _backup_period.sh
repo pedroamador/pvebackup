@@ -42,7 +42,7 @@ done
 echo "Excluding $exclude"
 
 # Do backup
-tar -czf /var/backups/localhost/$period/_root_`date +%Y%m%d`.tar.gz /root /etc 2> /dev/null
+tar -czf /var/backups/localhost/$period/pvebackup_config_`hostname -s`_`date +%A`.tar.gz /root /etc 2> /dev/null
 if [[ $period == 'weekly' || $period == 'monthly' ]]
 then
   maxfiles=1
