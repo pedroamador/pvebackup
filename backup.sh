@@ -19,4 +19,4 @@ exclude=`head -n1 $currentdir/$period.exclude 2> /dev/null`
 $currentdir/_backup_period.sh $period $exclude
 
 # Do other things
-$currentdir/post_script.sh
+$currentdir/post_script.sh $period
