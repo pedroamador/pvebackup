@@ -3,11 +3,13 @@ currentdir=$(dirname $0)
 echo "Host node server backup script (c) Pedro Amador 2011-2014"
 # Determine backup period
 period=''
-if [ `date +%e` == 1 ]
+if [ `cal | awk 'NF==7&&NR>2{print $1;exit}'` == $(date +%d) ]
 then
+  # Monthly; first sunday of month
   period='monthly'
 elif [ `date +%u` == 7 ]
 then
+  # Weekly: all sundays
   period='weekly'
 else
   period='daily'
