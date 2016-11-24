@@ -50,3 +50,4 @@ else
   maxfiles=2
 fi
 ionice -c3 /usr/bin/vzdump -compress 1 -mode snapshot -storage $period -stdexcludes 0 -maxfiles $maxfiles -all $exclude -exclude-path '/var/backups/localhost/.+'
+exit $?

@@ -19,6 +19,10 @@ exclude=`head -n1 $currentdir/$period.exclude 2> /dev/null`
 
 # Exec backup script
 $currentdir/_backup_period.sh $period $exclude
+resul_backup_period=$?
 
 # Do other things
-$currentdir/post_script.sh $period
+if [ $resul_backup_period == 0 ]
+then
+  $currentdir/post_script.sh $period
+fi
