@@ -45,7 +45,6 @@ then
 else
   snapshot=false
 fi
-shift
 
 # Make exclude list
 shift
