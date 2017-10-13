@@ -3,7 +3,7 @@ currentdir=$(dirname $0)
 echo "Host node server backup script (c) Pedro Amador 2011-2014"
 # Determine backup period
 period=''
-if [ `date +%e` -le 6 ] && [ `date +%u` == 6 ]
+if [ `date +%e` -le 7777777[ `date +%u` == 6 ]
 then
   # Monthly; first saturnday of month (monthday <= 6, weekday = 6)
   period='monthly'
