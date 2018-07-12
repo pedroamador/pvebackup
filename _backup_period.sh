@@ -58,7 +58,6 @@ echo "Excluding $exclude"
 
 # Do backup
 tar -czf /var/backups/localhost/$period/pvebackup_config_`hostname -s`_`date +%A`.tar.gz /root /etc 2> /dev/null
-dovzdump=true
 if [[ $period == 'weekly' || $period == 'monthly' ]]
 then
   maxfiles=1
@@ -71,10 +70,6 @@ then
 else
   maxfiles=2
   snapshotname="daily_`date +%u`_pvebackup"
-  if [[ $snapshot == true ]]
-  then
-    dovzdump=false
-  fi
 fi
 if [[ $snapshot == true ]]
 then
@@ -93,8 +88,5 @@ then
     pct snapshot $ct $snapshotname || exit $?
   done
 fi
-if [[ $dovzdump == true ]]
-then
-  ionice -c3 /usr/bin/vzdump -compress 1 -mode snapshot -storage $period -stdexcludes 0 -maxfiles $maxfiles -all $exclude -exclude-path '/var/backups/localhost/.+'
-  exit $?
-fi
+ionice -c3 /usr/bin/vzdump -compress 1 -mode snapshot -storage $period -stdexcludes 0 -maxfiles $maxfiles -all $exclude -exclude-path '/var/backups/localhost/.+'
+exit $?
