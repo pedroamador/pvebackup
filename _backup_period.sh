@@ -88,5 +88,5 @@ then
     pct snapshot $ct $snapshotname || exit $?
   done
 fi
-ionice -c3 /usr/bin/vzdump -compress zstd -mode snapshot -storage $period -stdexcludes 0 -maxfiles $maxfiles -all $exclude -exclude-path '/var/backups/localhost/.+'
+ionice -c3 /usr/bin/vzdump --compress zstd --mode snapshot --storage $period --stdexcludes 0 --maxfiles $maxfiles --all $exclude --exclude-path '/var/backups/localhost/.+' --mailnotification failure
 exit $?
