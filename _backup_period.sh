@@ -1,4 +1,5 @@
 #!/bin/bash
+
 period=''
 # Check argument
 if [[ $# -eq 0 ]]
@@ -57,7 +58,7 @@ done
 echo "Excluding $exclude"
 
 # Do backup
-tar --exclude="/root/.cache" -czf /var/backups/localhost/$period/pvebackup_config_`hostname -s`_`date +%A`.tar.gz /root /etc 2> /dev/null
+#tar --exclude="/root/.cache" -czf /var/backups/localhost/$period/pvebackup_config_`hostname -s`_`date +%A`.tar.gz /root /etc 2> /dev/null
 if [[ $period == 'weekly' || $period == 'monthly' ]]
 then
   maxfiles=1
@@ -88,5 +89,13 @@ then
     pct snapshot $ct $snapshotname || exit $?
   done
 fi
-ionice -c3 /usr/bin/vzdump --compress zstd --mode snapshot --storage $period --stdexcludes 0 --maxfiles $maxfiles --all $exclude --exclude-path '/var/backups/localhost/.+' --mailnotification failure
-exit $?
+/usr/bin/vzdump \
+  --compress zstd \
+  --mode snapshot \
+  --storage $period \
+  --stdexcludes 1 \
+  --prune-backups keep-last=$maxfiles \
+  --all $exclude \
+  --exclude-path '/var/backups/localhost' \
+  --mailnotification failure
+
