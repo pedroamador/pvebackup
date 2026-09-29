@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-if [[ $1 == 'snapshot' ]]
+if [[ "${1:-}" == 'snapshot' ]]
 then
   snapshot="snapshot"
 else
